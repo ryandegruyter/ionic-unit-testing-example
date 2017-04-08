@@ -35,8 +35,15 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
+    singleRun: false,
+ browsers: ['ChromeNoSandbox'],
+
+    customLaunchers: {
+      ChromeNoSandbox: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    }
   };
 
   config.set(_config);
